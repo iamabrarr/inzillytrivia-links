@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Opening App...</title>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+
+      // Expected format: /inzillytrivia-links/room/123
+      const parts = path.split('/').filter(Boolean);
+
+      const roomIndex = parts.indexOf('room');
+      if (roomIndex !== -1 && parts.length > roomIndex + 1) {
+        const roomId = parts[roomIndex + 1];
+
+        // Redirect to app
+        window.location.href = `inzillytrivia://room/${roomId}`;
+      } else {
+        document.body.innerHTML = 'Invalid link';
+      }
+    })();
+  </script>
+</head>
+<body>
+  Opening app...
+</body>
+</html>
