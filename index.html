@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <script>
+    // Extract room ID from URL path
+    const pathParts = window.location.pathname.split('/');
+    const roomId = pathParts[pathParts.length - 1];
+    // Redirect to Flutter app using custom scheme
+    window.location.href = `inzillytrivia://room/${roomId}`;
+
+    // Optional: fallback if app not installed
+    setTimeout(() => {
+      alert('App not installed! Open in browser instead.');
+    }, 2000);
+  </script>
+</head>
+<body>
+  Redirecting to app...
+</body>
+</html>
